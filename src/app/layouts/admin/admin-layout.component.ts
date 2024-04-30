@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
+
 import { Location, PopStateEvent } from '@angular/common';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import PerfectScrollbar from 'perfect-scrollbar';
@@ -17,12 +17,9 @@ export class AdminLayoutComponent implements OnInit {
      location: Location;
      private lastPoppedUrl: string;
        private yScrollStack: number[] = [];
-    @ViewChild('sidebar', {static: false}) sidebar;
-    @ViewChild(NavbarComponent, {static: false}) navbar: NavbarComponent;
-    constructor( private router: Router, location:Location ) {
-      this.location = location;
-    }
-
+    router: any;
+    navbar: any;
+   
     ngOnInit() {
       const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
       const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
